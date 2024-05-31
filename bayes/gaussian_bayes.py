@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from probability import gausssian_fun
 from MyGaussian import MyGaussian
-
+from OptimizeGaussian import OptimizeGaussian
 
 logging.basicConfig(level=logging.INFO)
 X, y = load_iris(return_X_y=True)
@@ -16,11 +16,17 @@ gnb = GaussianNB()
 gnb.fit(X_train, y_train)
 y_pred = gnb.predict(X_test)
 logging.info(y_pred)
-my_gnb = MyGaussian()
-my_gnb.fit(X_train, y_train)
-my_pred = my_gnb.predict(X_test)
-logging.info(my_pred)
-logging.info((y_pred == my_pred).mean())
+
+# my_gnb = MyGaussian()
+# my_gnb.fit(X_train, y_train)
+# my_pred = my_gnb.predict(X_test)
+# logging.info(my_pred)
+
+opt_gnb = OptimizeGaussian()
+opt_gnb.fit(X_train, y_train)
+opt_pred = opt_gnb.predict(X_test)
+logging.info(opt_pred)
+logging.info((y_pred == opt_pred).mean())
 
 
 x5 = X_test[5]
