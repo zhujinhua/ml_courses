@@ -1,0 +1,18 @@
+# commond docker command
+docker build -t ml_courses -f ./Dockerfile  .
+#ls all the image
+docker image ls
+# ls all the container
+docker container ps
+# run with container id
+docker exec -it 94db961b88a9 /bin/bash
+# docker remove image id
+docker rmi mapillary-daily-update:18
+# Run with image id
+docker run -it 9d2546d2bafb /bin/bash
+# exit the container
+exit
+# docker remove container with id
+docker rm <container-id>
+# docker stop container with id
+docker stop <container-id>

@@ -32,7 +32,7 @@ tree_pred = tree.predict(X_test)
 logging.info(f'Decision Tree MSE: {mean_squared_error(y_test, tree_pred)}')
 logging.info(f'Decision Tree MAE: {mean_absolute_error(y_test, tree_pred)}')
 # 权重，偏置
-linear  = LinearRegression()
+linear = LinearRegression()
 linear.fit(X_train, y_train)
 linear_pred = linear.predict(X_test)
 
@@ -44,7 +44,7 @@ X, y = load_breast_cancer(return_X_y=True)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-lr = LogisticRegression(max_iter=10000) # check max iter
+lr = LogisticRegression(max_iter=10000)  # check max iter
 lr.fit(X_train, y_train)
 lr_pred = lr.predict(X_test)
 logging.info((lr_pred == y_test).mean())
@@ -76,7 +76,7 @@ reconstructed_all = U @ np.diag(S) @ Vt
 logging.info("Reconstructed (all singular values): {}".format(reconstructed_all))
 
 # Logging the low-rank approximation using the first 5 singular values
-k = 300
+k = 100
 U_k = U[:, :k]
 S_k = np.diag(S[:k])
 Vt_k = Vt[:k, :]
@@ -87,5 +87,3 @@ logging.info("Reconstructed (first 5 singular values): {}".format(reconstructed_
 plt.imshow(reconstructed_k, cmap='gray')
 plt.title("Low-Rank Approximation (k=5)")
 plt.show()
-
-
