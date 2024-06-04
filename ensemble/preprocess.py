@@ -2,8 +2,10 @@ from sklearn.model_selection import train_test_split
 import logging
 import pandas as pd
 from sklearn.neighbors import KNeighborsRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.datasets import load_breast_cancer
 from sklearn.decomposition import PCA
@@ -49,13 +51,16 @@ lr.fit(X_train, y_train)
 lr_pred = lr.predict(X_test)
 logging.info((lr_pred == y_test).mean())
 
-pca = PCA(n_components=1)
-X_train_p = pca.fit_transform(X_train)
-X_test_p = pca.transform(X_test)
-lr_pca = LogisticRegression(max_iter=10000)
-lr_pca.fit(X_train_p, y_train)
-pca_pred = lr_pca.predict(X_test_p)
-logging.info(f'pca logistic: {(pca_pred == y_test).mean()}')
+pipeline = Pipeline([
+    ('Standard', StandardScaler()),
+    ('PCA', PCA(n_components=8)),
+    ('estimator', LinearRegression())
+])
+pipeline.fit(X_train, y_train)
+p_pred = pipeline.predict(X_test)
+logging.info(f'linear regression MAE: {mean_absolute_error(y_true=y_test, y_pred=p_pred)}')
+logging.info(f'linear regression MSE: {mean_squared_error(y_true=y_test, y_pred=p_pred)}')
+logging.info(f'linear regression R2: {r2_score(y_true=y_test, y_pred=p_pred)}')
 
 # Load and display the image
 beauty = plt.imread(fname='beauty.png')
