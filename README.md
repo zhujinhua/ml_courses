@@ -1,20 +1,20 @@
 # ml_courses
 1. traditional machine learning algorithm
-   2. 算法角度
+   - 算法角度
       - 分类算法：逻辑回归，KNN，贝叶斯，决策树，支持向量机，集成学习
       - 回归算法：线性回归，KNN，决策树，支持向量机，集成学习
-      - 降维算法：PCA
-      - 聚类算法：K-Means算法
-   3. 数据角度
+      - 降维算法：PCA, SVD
+      - 聚类算法：K-Means
+   - 数据角度
        - 特征：互相独立independently，表格类数据 tabular data 
-   3. 项目流程
+   - 项目流程
        - 分析项目，确定输入，输出
        - 根据输入，输出构建数据集（爱数科数据）
        - 遴选算法，完成输入到输出的映射
        - 模型部署，上线推理
    - 项目案例：
      - 外面评论　情感识别
-     - positive, negative, natural
+     - positive, negative, neutral
    - NLP问题
      - 不能直接处理文字，如何把文本向量化：举例
        - S1：你吃了吗？
