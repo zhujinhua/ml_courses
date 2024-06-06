@@ -13,8 +13,8 @@
        - 遴选算法，完成输入到输出的映射
        - 模型部署，上线推理
    - 项目案例：
-     - 外面评论　情感识别
-     - positive, negative, neutral
+     - 外卖评论：情感识别（positive, negative, neutral）
+     - 薪资区间预测
    - NLP问题
      - 不能直接处理文字，如何把文本向量化：举例
        - S1：你吃了吗？
