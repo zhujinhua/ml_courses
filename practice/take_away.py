@@ -13,7 +13,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 
-REVIEW_DICT = {1: 'good', 0: 'bad'}
+REVIEW_DICT = {1: 'positive', 0: 'negative'}
 
 
 def load_stopwords(filepath):
@@ -26,6 +26,7 @@ def get_vocabulary_list(msgs, stopwords_set):
     vocab_set = set()
     for i in msgs:
         vocab_set |= set(i)
+        # vocab_set |= set(i) - stopwords_set
     return sorted(list(vocab_set))
 
 
