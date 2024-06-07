@@ -3,9 +3,9 @@ import torch
 # torch help us to derivation, x0.data store the value, x0.grad store the gradient value
 # print(torch.__version__)
 
-x0 = torch.ranint(low=-1000, high=1001, size=(1,), requires_grad=True)
-y0 = torch.randint(low=-1000, high=1001, size=(1,), requires_grad=True)
-z0 = torch.randint(low=-1000, high=1001, size=(1,), requires_grad=True)
+x0 = torch.randint(low=-1000, high=1001, size=(1,), dtype=torch.float32, requires_grad=True)
+y0 = torch.randint(low=-1000, high=1001, size=(1,), dtype=torch.float32, requires_grad=True)
+z0 = torch.randint(low=-1000, high=1001, size=(1,), dtype=torch.float32, requires_grad=True)
 
 
 def fn(x, y, z):
@@ -15,11 +15,11 @@ def fn(x, y, z):
 epochs = 10000
 learning_rate = 1e-2
 for _ in range(epochs):
-    # positive 传播
+    # Forward Propagation
     target = fn(x0, y0, z0)
-    # negative 传播，求偏导
+    # Backward Propagation, taking the partial derivative
     target.backward()
-    # 梯度下降
+    # gradient decrease
     x0.data -= learning_rate * x0.grad
     y0.data -= learning_rate * y0.grad
     z0.data -= learning_rate * z0.grad

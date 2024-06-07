@@ -12,17 +12,18 @@ print('Bias: %s' % linear_layer.bias)
 # Mean Squared Error
 nn.MSELoss()
 # 优化过程：求梯度的过程
-optimizer = torch.optim.SDG(params=linear_layer.parameters(), lr=1e-3) # random gradient descent: 减梯度，清空梯度
+optimizer = torch.optim.SGD(params=linear_layer.parameters(), lr=1e-3) # random gradient descent: 减梯度，清空梯度
 # 减去偏导
 optimizer.step()
 # 清空梯度
-optimizer.zero.grad()
-w = torch.randn(13, requires_grad=True)
-b = torch.randn(1, requires_grad=True)
+optimizer.zero_grad()
 
-
-def model(x, w, b):
-    return x @ w + b
-
-
-print(w)
+# w = torch.randn(13, requires_grad=True)
+# b = torch.randn(1, requires_grad=True)
+#
+#
+# def model(x, w, b):
+#     return x @ w + b
+#
+#
+# print(w)
