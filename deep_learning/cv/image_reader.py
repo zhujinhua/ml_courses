@@ -3,7 +3,7 @@ import cv2
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
-file_name = '../ensemble/beauty.png'
+file_name = '../../dataset/beauty.png'
 img = cv2.imread(filename=file_name)
 cv2.imshow(winname='img', mat=img)
 cv2.waitKey(delay=1000)

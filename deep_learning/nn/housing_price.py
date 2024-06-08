@@ -6,7 +6,7 @@ from torch import nn
 import numpy as np
 import matplotlib.pyplot as plt
 
-housing_file = '../ensemble/BostonHousing.csv'
+housing_file = '../../dataset/BostonHousing.csv'
 housing_data = pd.read_csv(housing_file)
 X = housing_data.iloc[:, :-1]
 y = housing_data.iloc[:, -1]

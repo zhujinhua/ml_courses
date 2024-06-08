@@ -44,8 +44,8 @@ def messages_2_vectors(vocab_list, msgs):
 
 
 logging.basicConfig(level=logging.INFO)
-stopwords = load_stopwords('cn_stopwords.txt')
-take_away_df = pd.read_csv('中文外卖评论数据集.csv')
+stopwords = load_stopwords('../../dataset/cn_stopwords.txt')
+take_away_df = pd.read_csv('../../dataset/中文外卖评论数据集.csv')
 take_away_df['words'] = take_away_df['review'].apply(lambda x: jieba.lcut(x.replace(' ', ''), cut_all=False))
 vocabulary_set = get_vocabulary_list(take_away_df['words'], stopwords)
 take_away_vecs = messages_2_vectors(vocabulary_set, take_away_df['words'])

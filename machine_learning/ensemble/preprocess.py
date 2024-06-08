@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 logging.basicConfig(level=logging.INFO)
 
 # centralization: minus mean value
-bonston_pd = pd.read_csv('BostonHousing.csv')
+bonston_pd = pd.read_csv('../../dataset/BostonHousing.csv')
 X = bonston_pd.iloc[:, :-1]
 y = bonston_pd.iloc[:, -1]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)

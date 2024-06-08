@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-file_name = '../ensemble/beauty.png'
+file_name = '../../dataset/beauty.png'
 img = cv2.imread(filename=file_name)
 # 简单滤波处理,平滑滤波=卷积操作
 N_1 = 3

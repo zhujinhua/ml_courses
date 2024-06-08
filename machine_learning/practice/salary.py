@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO)
 ENCODER_COLUMNS = ['workclass', 'education', 'marital-status', 'occupation',
                    'relationship', 'race', 'sex', 'native-country']
 values_to_drop = [' ?']
-salary_df = pd.read_csv('成人收入预测数据集.csv')
+salary_df = pd.read_csv('../../dataset/成人收入预测数据集.csv')
 
 trim_columns = [col.replace(' ', '') for col in salary_df.columns]
 salary_df = salary_df.set_axis(trim_columns, axis=1)
