@@ -11,7 +11,7 @@ housing_data = pd.read_csv(housing_file)
 X = housing_data.iloc[:, :-1]
 y = housing_data.iloc[:, -1]
 _mean = np.mean(X, axis=0)
-_std = np.mean(X, axis=0) + 1e-9
+_std = np.std(X, axis=0) + 1e-9
 X = (X - _mean) / _std
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, shuffle=True)
 
@@ -54,7 +54,6 @@ class Model(nn.Module):
         super().__init__()
         self.linear1 = nn.Linear(in_features=n_features, out_features=8)
         self.linear2 = nn.Linear(in_features=8, out_features=1)
-        pass
 
     def forward(self, x):
         x = self.linear1(x)
@@ -73,11 +72,12 @@ optimizer = torch.optim.SGD(params=customized_model.parameters(), lr=learning_ra
 def get_loss(dataloader):
     customized_model.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout)????
     losses = []
-    for x, y in dataloader:
-        y_pred = customized_model(x)
-        loss = loss_fun(y_pred, y)
-        losses.append(loss.item())
-    final_loss = round(number=sum(losses) / len(losses), ndigits=5)
+    with torch.no_grad():
+        for x, y in dataloader:
+            y_pred = customized_model(x)
+            loss = loss_fun(y_pred, y)
+            losses.append(loss.item())
+    final_loss = round(sum(losses) / len(losses), 5)
     return final_loss
 
 

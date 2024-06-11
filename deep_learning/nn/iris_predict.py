@@ -9,7 +9,7 @@ from sklearn.datasets import load_iris
 
 X, y = load_iris(return_X_y=True)
 _mean = np.mean(X, axis=0)
-_std = np.mean(X, axis=0) + 1e-9
+_std = np.std(X, axis=0) + 1e-9
 X = (X - _mean) / _std
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, shuffle=True)
 
@@ -43,10 +43,14 @@ class Model(nn.Module):
     def __init__(self, n_features, n_classes):
         # must do
         super().__init__()
-        self.linear1 = nn.Linear(in_features=n_features, out_features=n_classes)
+        self.linear1 = nn.Linear(n_features, 100)
+        self.relu = nn.ReLU()
+        self.linear2 = nn.Linear(100, n_classes)
 
     def forward(self, x):
         x = self.linear1(x)
+        x = self.relu(x)
+        x = self.linear2(x)
         return x
 
 
@@ -58,15 +62,16 @@ optimizer = torch.optim.SGD(params=customized_model.parameters(), lr=learning_ra
 
 
 def get_acc(dataloader):
-    customized_model.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout)????
-    losses = []
-    for x, y in dataloader:
-        y_pred = customized_model(x)
-        y_pred = y_pred.argmax(-1)
-        loss = (y == y_pred).to(dtype=torch.float32).mean()
-        losses.append(loss.item())
-    final_loss = round(number=sum(losses) / len(losses), ndigits=5)
-    return final_loss
+    customized_model.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout, batch normalization)????
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for x, y in dataloader:
+            y_pred = customized_model(x)
+            _, predicted = torch.max(y_pred, 1)
+            total += y.size(0)
+            correct += (predicted == y).sum().item()
+    return correct / total
 
 
 train_accs = []
