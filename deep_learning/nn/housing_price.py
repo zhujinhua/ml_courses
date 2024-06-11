@@ -35,17 +35,13 @@ class HouseDataset(Dataset):
 
 
 house_dataset = HouseDataset(X_train, y_train)
-print(house_dataset[0])
-house_train_dataloader = DataLoader(dataset=house_dataset, batch_size=32, shuffle=True)
-for x, y in house_train_dataloader:
-    print(x)
-    print(y)
+house_train_dataloader = DataLoader(dataset=house_dataset, batch_size=16, shuffle=True)
 test_dataset = HouseDataset(X_test, y_test)
-print(test_dataset[0])
 house_test_dataloader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=True)
 
+# 1
 model = nn.Linear(in_features=13, out_features=1)
-
+# 2
 model_seq = nn.Sequential(
     nn.Linear(in_features=13, out_features=1)
 )
@@ -62,23 +58,23 @@ class Model(nn.Module):
 
     def forward(self, x):
         x = self.linear1(x)
-        x = torch.relu(x) # ???? break the linear space, activation fun
+        x = torch.relu(x)  # ???? break the linear space, activation fun
         x = self.linear2(x)
         return x
 
 
-model_define = Model(n_features=13)
+customized_model = Model(n_features=13)
 epochs = 500
 learning_rate = 1e-3  # gradient explosion, need preprocess data, then lower the lr
 loss_fun = nn.MSELoss()
-optimizer = torch.optim.SGD(params=model_define.parameters(), lr=learning_rate)
+optimizer = torch.optim.SGD(params=customized_model.parameters(), lr=learning_rate)
 
 
 def get_loss(dataloader):
-    model_define.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout)????
+    customized_model.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout)????
     losses = []
     for x, y in dataloader:
-        y_pred = model_define(x)
+        y_pred = customized_model(x)
         loss = loss_fun(y_pred, y)
         losses.append(loss.item())
     final_loss = round(number=sum(losses) / len(losses), ndigits=5)
@@ -88,9 +84,9 @@ def get_loss(dataloader):
 train_losses = []
 test_losses = []
 for epoch in range(epochs):
-    model_define.train()
+    customized_model.train()
     for x, y in house_train_dataloader:
-        y_pred = model_define(x)
+        y_pred = customized_model(x)
         loss = loss_fun(y_pred, y)
         optimizer.zero_grad()
         loss.backward()
@@ -100,7 +96,6 @@ for epoch in range(epochs):
     train_losses.append(train_loss)
     test_losses.append(test_loss)
     print('Epoch: %s: train loss: %s, test loss: %s' % (epoch, train_loss, test_loss))
-
 
 plt.plot(train_losses, label=f'train loss lr {learning_rate}', c='blue')
 plt.plot(test_losses, label=f'test loss lr {learning_rate}', c='red')

@@ -40,7 +40,7 @@ plt.show()
 y_true = np.array([0, 1, 0])
 y_pred1 = softmax([12.5, -0.5, 2.7])
 y_pred2 = softmax([-12.5, 6.4, 2.7])
-loss1 = np.log(softmax(-0.5))  #交叉熵计算代价比较小，只计算一个
+loss1 = np.log(softmax(-0.5))  # 交叉熵计算代价比较小，只计算一个
 loss2 = np.log(softmax(6.4))
 
 logits = torch.randn(5, 3)
@@ -52,7 +52,7 @@ def tanh(x):
 
 
 x = np.linspace(start=-10, stop=10, num=100)
-plt.plot(tanh(x))
+plt.plot(tanh(x), 'tanh')
 plt.show()
 
 x = torch.randn(3, 5)

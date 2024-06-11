@@ -14,7 +14,7 @@ X = (X - _mean) / _std
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, shuffle=True)
 
 
-class HouseDataset(Dataset):
+class IrisDataset(Dataset):
     # define a dataset of pricing
     def __init__(self, X, y):
         # get the parameters, define the fields
@@ -32,21 +32,10 @@ class HouseDataset(Dataset):
         return x, y
 
 
-house_dataset = HouseDataset(X_train, y_train)
-print(house_dataset[0])
-house_train_dataloader = DataLoader(dataset=house_dataset, batch_size=8, shuffle=True)
-for x, y in house_train_dataloader:
-    print(x)
-    print(y)
-test_dataset = HouseDataset(X_test, y_test)
-print(test_dataset[0])
-house_test_dataloader = DataLoader(dataset=test_dataset, batch_size=4, shuffle=True)
-
-model = nn.Linear(in_features=4, out_features=1)
-
-model_seq = nn.Sequential(
-    nn.Linear(in_features=4, out_features=1)
-)
+iris_dataset = IrisDataset(X_train, y_train)
+iris_train_dataloader = DataLoader(dataset=iris_dataset, batch_size=8, shuffle=True)
+test_dataset = IrisDataset(X_test, y_test)
+iris_test_dataloader = DataLoader(dataset=test_dataset, batch_size=4, shuffle=True)
 
 
 class Model(nn.Module):
@@ -54,25 +43,25 @@ class Model(nn.Module):
     def __init__(self, n_features, n_classes):
         # must do
         super().__init__()
-        self.linear1 = nn.Linear(in_features=n_features, out_features=3)
+        self.linear1 = nn.Linear(in_features=n_features, out_features=n_classes)
 
     def forward(self, x):
         x = self.linear1(x)
         return x
 
 
-model_define = Model(n_features=4, n_classes=3)
-epochs = 200
-learning_rate = 1e-3  # gradient explosion, need preprocess data, then lower the lr
+customized_model = Model(n_features=4, n_classes=3)
+epochs = 300
+learning_rate = 1e-2  # gradient explosion, need preprocess data, then lower the lr
 loss_fun = nn.CrossEntropyLoss()
-optimizer = torch.optim.SGD(params=model_define.parameters(), lr=learning_rate)
+optimizer = torch.optim.SGD(params=customized_model.parameters(), lr=learning_rate)
 
 
 def get_acc(dataloader):
-    model_define.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout)????
+    customized_model.eval()  # define the model the evaluate module(latchNorm, layerNorm, Dropout)????
     losses = []
     for x, y in dataloader:
-        y_pred = model_define(x)
+        y_pred = customized_model(x)
         y_pred = y_pred.argmax(-1)
         loss = (y == y_pred).to(dtype=torch.float32).mean()
         losses.append(loss.item())
@@ -83,16 +72,16 @@ def get_acc(dataloader):
 train_accs = []
 test_accs = []
 for epoch in range(epochs):
-    model_define.train()
-    for x, y in house_train_dataloader:
-        y_pred = model_define(x)
+    customized_model.train()
+    for x, y in iris_train_dataloader:
+        y_pred = customized_model(x)
         loss = loss_fun(y_pred, y)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
 
-    train_acc = get_acc(house_train_dataloader)
-    test_acc = get_acc(house_test_dataloader)  # test not need train
+    train_acc = get_acc(iris_train_dataloader)
+    test_acc = get_acc(iris_test_dataloader)  # test not need train
     train_accs.append(train_acc)
     test_accs.append(test_acc)
     print('Epoch: %s: train acc: %s, test acc: %s' % (epoch, train_acc, test_acc))

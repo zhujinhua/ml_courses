@@ -5,17 +5,17 @@ file_name = '../../dataset/beauty.png'
 img = cv2.imread(filename=file_name)
 # 简单滤波处理,平滑滤波=卷积操作
 N_1 = 3
-kernel_1 = np.ones((N_1, N_1)) / N_1 ** 2  # 滤波????
+kernel_1 = np.ones((N_1, N_1)) / N_1 ** 2
 
 N_2 = 7
-kernel_2 = np.ones((N_2, N_2)) / N_2 ** 2  # 滤波????
+kernel_2 = np.ones((N_2, N_2)) / N_2 ** 2
 
 N_3 = 11
-kernel_3 = np.ones((N_3, N_3)) / N_3 ** 2  # 滤波????
+kernel_3 = np.ones((N_3, N_3)) / N_3 ** 2
 # 目标图像的深度？？？，RGB=3，
 img1 = cv2.filter2D(img, ddepth=-1, kernel=kernel_1)  # 对信号的所有处理均是滤波？？？？
-img2 = cv2.filter2D(img, ddepth=-1, kernel=kernel_2)  # 对信号的所有处理均是滤波？？？？
-img3 = cv2.filter2D(img, ddepth=-1, kernel=kernel_3)  # 对信号的所有处理均是滤波？？？？
+img2 = cv2.filter2D(img, ddepth=-1, kernel=kernel_2)
+img3 = cv2.filter2D(img, ddepth=-1, kernel=kernel_3)
 
 cv2.imshow(winname='raw image', mat=img)
 cv2.waitKey(delay=2000)
