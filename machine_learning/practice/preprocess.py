@@ -5,15 +5,27 @@ Description:
 """
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestRegressor, VotingRegressor
+from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_absolute_error, median_absolute_error, mean_squared_error
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.pipeline import Pipeline
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.svm import SVR
+
 
 ENCODER_COLUMNS = ['租房网站名称', '小区', '城市', '区', '朝向']
-# FILL_VALUE = ['南,东西,西南,东,西,东北,西北,北']
+FILL_VALUE = ['南’, ‘东西’, ‘西南’, ‘东’, ‘西’, ‘东北’, ‘西北’, ‘北']
+
+
+def fill_na_with_list(series, values):
+    na_indices = series[series.isna()].index
+    random_values = np.random.choice(values, size=len(na_indices))
+    series.loc[na_indices] = random_values
+    return series
+
 
 def custom_adjusted_r2(y_true, y_pred, **kwargs):
     if 'x_column' not in kwargs['kwargs']:
@@ -72,21 +84,51 @@ def zero_index_features(df, columns_to_reindex):
 
 
 def get_column_transformer(encoded_columns_name):
-    return ColumnTransformer([('encoder', OneHotEncoder(drop='first'), encoded_columns_name)], remainder='passthrough')
+    return ColumnTransformer([('encoder', OneHotEncoder(drop='first', handle_unknown='ignore'), encoded_columns_name)], remainder='passthrough')
 
 
 rent_house_df = pd.read_csv('../../dataset/中国租房信息数据集.csv')
-filtered_df = rent_house_df.drop(columns=['link', '详细地址', 'lng', 'lat', '信息发布人类型']).dropna()
-filtered_df = filtered_df[(rent_house_df['面积'] >= 5) & (filtered_df['面积'] / filtered_df['室'] >= 3)]
+# rent_house_df['朝向'] = fill_na_with_list(rent_house_df['朝向'], FILL_VALUE)
+filtered_df = rent_house_df.drop(columns=['link', '详细地址', '信息发布人类型']).dropna()
+# filtered_df = filtered_df[(rent_house_df['面积'] >= 5) & (filtered_df['面积'] / filtered_df['室'] >= 3)]
+# filtered_df.loc[filtered_df['周边学校个数'] >= 30, '周边学校个数'] = 30
+# filtered_df.loc[filtered_df['周边医院个数'] >= 30, '周边医院个数'] = 30
 
 zero_index_features(filtered_df, ENCODER_COLUMNS)
 X_train, X_test, y_train, y_test = train_test_split(filtered_df.loc[:, filtered_df.columns != '价格'],
                                                     filtered_df.loc[:, '价格'],
                                                     test_size=0.3, random_state=42, shuffle=True)
-rf = RandomForestRegressor(n_estimators=200, random_state=42)
+rf = RandomForestRegressor(n_estimators=500, random_state=42)
 rf.fit(X_train, y_train)
 plot_feature_importance(rf, X_train)
 
 rf_pred = rf.predict(X_test)
 result = evaluate_predict_result(X_test, y_test, rf_pred)
 print(result)
+
+# estimator = []
+# # estimator.append(('SVM', SVR()))
+# estimator.append(('Linear Regressor', LinearRegression()))
+# # estimator.append(('RF', RandomForestRegressor(random_state=42)))
+# voting = VotingRegressor(estimators=estimator)
+#
+# onehot = OneHotEncoder(handle_unknown='ignore')
+# X = filtered_df.loc[:, filtered_df.columns != '价格']
+# onehot.fit(X[ENCODER_COLUMNS])
+# X_encoded = onehot.transform(X[ENCODER_COLUMNS])
+#
+# X_encoded_df = pd.DataFrame(X_encoded.toarray(), columns=onehot.get_feature_names_out(ENCODER_COLUMNS))
+# X_remaining = X.drop(columns=ENCODER_COLUMNS).reset_index(drop=True)
+# X_full = pd.concat([X_encoded_df, X_remaining], axis=1)
+# X_train, X_test, y_train, y_test = train_test_split(X_full,
+#                                                     filtered_df.loc[:, '价格'],
+#                                                     test_size=0.3, random_state=42, shuffle=True)
+# pipeline = Pipeline([
+#     ('Standardization', StandardScaler(with_mean=False)),
+#     # ('SVD', TruncatedSVD(n_components=90)),
+#     ('Estimator', voting)
+# ])
+# pipeline.fit(X_train, y_train)
+# voting_pred = pipeline.predict(X_test)
+# result = evaluate_predict_result(X_test, y_test, voting_pred)
+# print(result)
