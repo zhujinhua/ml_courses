@@ -13,7 +13,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ENCODER_COLUMNS = ['租房网站名称', '小区', '城市', '区', '朝向']
-
+# FILL_VALUE = ['南,东西,西南,东,西,东北,西北,北']
 
 def custom_adjusted_r2(y_true, y_pred, **kwargs):
     if 'x_column' not in kwargs['kwargs']:
