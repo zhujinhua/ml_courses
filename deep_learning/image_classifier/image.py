@@ -43,7 +43,7 @@ class ConvBlock(nn.Module):
         self.bn = nn.BatchNorm2d(num_features=out_channels)
         self.relu = nn.ReLU()
 
-    def forword(self, x):
+    def forward(self, x):
         x = self.conv(x)
         x = self.bn(x)
         x = self.Relu(x)
