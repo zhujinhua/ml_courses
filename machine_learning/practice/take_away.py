@@ -12,6 +12,7 @@ from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
+import joblib
 
 REVIEW_DICT = {1: 'positive', 0: 'negative'}
 
@@ -61,6 +62,7 @@ logistic = LogisticRegression(random_state=42)
 logistic.fit(X_train, y_train)
 logistic_pred = logistic.predict(X_test)
 logging.info(f'Logistic regression Accuracy: {round((logistic_pred == y_test).mean(), 3)}')
+joblib.dump(logistic, filename='take_away.joblib', compress=3)
 
 rf = RandomForestClassifier(random_state=42)
 rf.fit(X_train, y_train)
@@ -80,7 +82,7 @@ voting_pred = vot_hard.predict(X_test)
 logging.info(f'Voting Ensemble Accuracy: {round((voting_pred == y_test).mean(), 3)}')
 
 # test on other review
-X_test_review = ['口感不错', '口感不错，但送地太慢了', '不太好吃', '味道一般']
+X_test_review = ['口感不错', '口感不错，但送得太慢了', '不太好吃', '味道一般']
 X_test_seg = [jieba.lcut(x, cut_all=False) for x in X_test_review]
 X_test_vectors = messages_2_vectors(vocabulary_set, X_test_seg)
 y_gassian = gaussian.predict(X_test_vectors)
