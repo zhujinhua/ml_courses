@@ -8,10 +8,10 @@ from torch import nn
 # device 后期处理
 # dtype torch float 32
 conv = nn.Conv2d(in_channels=3,
-          out_channels=8,  # 每一层特征图???
+          out_channels=8,  # 每一层特征图: 这些通道不对应于颜色通道，而是对应于从图像中学习到的不同特征。
           kernel_size=3,
           stride=1,
           padding=1)
-# 卷积层的参数是核
+# 卷积层的参数是Kernel
 weights = conv.weight.shape
 bias = conv.bias.shape

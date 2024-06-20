@@ -28,7 +28,7 @@ def relu(x):
 
 
 X = torch.randn(2, 6)
-print(relu(X))  #存在relu 变体
+print(relu(X))  # 存在relu 变体
 
 
 class ConvBlock(nn.Module):
@@ -57,7 +57,8 @@ con_block1(X)
 # 线性层
 linear = nn.Linear(in_features=1024, out_features=16)
 
-#丢弃层，期望??
+# 为什么存在train, eval模式：有些层在eval下不起作用
+# 丢弃层，期望??
 dp = nn.Dropout(p=0.5)
 X = torch.rand(10)
 print(dp(X))

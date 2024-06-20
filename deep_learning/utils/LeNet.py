@@ -1,6 +1,11 @@
+"""
+Author: jhzhu
+Date: 2024/6/20
+Description: 
+"""
 import torch
 from torch import nn
-from image import ConvBlock
+from ConvBlock import ConvBlock
 
 
 class LeNet(nn.Module):
