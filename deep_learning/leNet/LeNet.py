@@ -1,12 +1,13 @@
 import torch
 from torch import nn
-from image import ConvBlock
+
+from deep_learning.utils.ConvBlock import ConvBlock
 
 
 class LeNet(nn.Module):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.conv1 = nn.Conv2d(in_channels=1,
+        self.conv1 = nn.Conv2d(in_channels=3,
                                out_channels=6,
                                kernel_size=5,
                                stride=1,

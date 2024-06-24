@@ -5,7 +5,7 @@
         - (x - mu)/sigma
 ### 3.ReLU 层
 ### 4.深度学习人物
-    - 三巨头 2006 Geoffey Hinton, Yoshua Bengio, Yann LeCun(CV, LeNet 1998, Facebook), 吴恩达 网红科普大神 李飞飞 数据集大神 imageNet 何凯明 ResNet->transformer
+    - 三巨头 2006 Geoffey Hinton, Yoshua Bengio, Yann LeCun(CV, LeNet 1998, Facebook), 吴恩达 网红科普大神， 李飞飞 数据集大神 ImageNet， 何凯明 ResNet->transformer
     - LeCun LeNet-5 看一下 1998: 分为两步：Feature Extraction, Traniable Classifier,subsampling池化, 卷积：越卷越多层，池化图片越来越小 kernal 5*5
 ### 5. 复习
     - 论文
