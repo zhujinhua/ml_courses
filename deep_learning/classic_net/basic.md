@@ -1,6 +1,6 @@
 ### 其他网络
     - VGGNet 对象检测，图像分割，多个卷积层和池化层的堆叠，VGG16 能够提取更加丰富和多样的特征 Very Deep Convolutional Networks for Large-Scale Image Recognition
-    - RestNet 13层网络（深度残差网络）VGGNet网络太深，出现梯度消失，正向可以传播，反向传播无法回传(偏导越传越小) Deep Residual Learning for Image Recognition
+    - RestNet 13层网络（深度残差网络）VGGNet网络太深，训练性能比较差；随着网络层的不断堆叠，出现梯度消失，正向可以传播，反向传播无法回传(偏导越传越小) Deep Residual Learning for Image Recognition
         - y = F(X) + X 1*1 调整维度，调整通道数
         - 怎么搭网络只是模型的一部分，关注度1/10, 60% 训练逻辑，40% 推理逻辑；算法指的是训练与推理策略
         - 虚线块：y = F(X) + Conv(X)
