@@ -12,7 +12,6 @@ class ConvBlock(nn.Module):
     """
 
     def __init__(self, in_channels, out_channels, stride):
-        # 调用父类初始化方法
         super().__init__()
 
         self.stage = nn.Sequential(

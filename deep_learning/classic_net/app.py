@@ -175,6 +175,7 @@ for network, model_object in classic_net_dict.items():
     optimizer = torch.optim.SGD(params=model.parameters(), lr=lr)
     plot_training_result(model_object[1], model=model, name=network)
     m1 = model_object[0]
+    # load from pth file
     m1.load_state_dict(state_dict=torch.load(f=f"{network}_best.pt"),
                        strict=False)
     label = infer(resize=model_object[1], img_path="../../dataset/gestures/test/G5/IMG_1204.JPG",
