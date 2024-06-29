@@ -8,8 +8,8 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 
 
 st.title('Classifying Iris Flowers')
-st.markdown('Toy model to play to classify iris flowers into setosa, versicolor, virginica')
-st.header('Plant Features')
+st.markdown('Classify iris flowers into setosa, versicolor, virginica')
+st.header('Iris Features')
 col1, col2 = st.columns(2)
 with col1:
     st.text('Sepal characteristics')
