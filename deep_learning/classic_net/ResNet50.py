@@ -8,7 +8,7 @@ import torch.nn as nn
 
 class ConvBlock(nn.Module):
     """
-        虚线块，不是 y = F(x) + Conv(x)
+        虚线块，是 y = F(x) + Conv(x)
     """
 
     def __init__(self, in_channels, out_channels, stride):
@@ -62,6 +62,9 @@ class ConvBlock(nn.Module):
 
 
 class IdentityBlock(nn.Module):
+    """
+        实线块，是 y = F(x) + x
+    """
     def __init__(self, in_channels, out_channels):
         super(IdentityBlock, self).__init__()
         self.stage = nn.Sequential(

@@ -12,7 +12,7 @@ model = YOLO("yolov8n-cls.yaml")  # build a new model from YAML
 # model = YOLO("yolov8n-cls.yaml").load("yolov8n-cls.pt")  # build from YAML and transfer weights
 
 # Train the model
-model.train(data="../../dataset/gestures", epochs=100, imgsz=64, save_dir='./yolov8n-cls')
+model.train(data="../../dataset/gestures", epochs=1, imgsz=64, save_dir='./yolov8n-cus')
 model = YOLO('yolov8n-cls/best.pt')
 img_path = '../../dataset/gestures/test/G0/IMG_1312.JPG.jpg'
 img = Image.open(img_path)
