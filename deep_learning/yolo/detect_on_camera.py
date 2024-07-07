@@ -8,7 +8,8 @@ from ultralytics import YOLO
 import cv2
 
 # Load a model
-model = YOLO("yolov8n.pt")
+# model = YOLO("yolov8n.pt")
+model = YOLO("yolov8n-seg.pt")
 
 cap = cv2.VideoCapture(0)
 while cap.isOpened():
