@@ -11,7 +11,7 @@
             - Decoder:根据编码器得到的中间表达，解码出相应的结果
             - context vector 中间表达：链接了decoder,decoder模型
             - U-Net：Conv networks for bimedicine image segment
-                - Encoder, Decoder思想，内化，泛化，类似模拟大脑学习，比如不断抽取学习什么事肝脏，以小博大的过程
+                - Encoder, Decoder思想，内化，泛化，类似模拟大脑学习，比如不断抽取学习什么是肝脏，以小博大的过程
             - 多尺度特征 multi-scale特征
                 - 信息的抽象层次不同的特征
                 - 多尺度特征融合：把不同scale的特征拼接concatenate!!!!!

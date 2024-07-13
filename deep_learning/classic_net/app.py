@@ -162,22 +162,23 @@ def infer(resize, img_path, model):
         return y_pred.argmax(dim=-1).item()
 
 
-classic_net_dict = {
-    # 'lenet': (LeNet(), (32, 32)),
-    # 'vgg16': (VGG16(), (224, 224)),
-    'resnet50': (ResNet50(), (224, 224)),
-}
-for network, model_object in classic_net_dict.items():
-    model = model_object[0]
-    epochs = 20
-    lr = 1e-3
-    loss_fun = nn.CrossEntropyLoss()
-    optimizer = torch.optim.SGD(params=model.parameters(), lr=lr)
-    plot_training_result(model_object[1], model=model, name=network)
-    m1 = model_object[0]
-    # load from pth file
-    m1.load_state_dict(state_dict=torch.load(f=f"{network}_best.pt"),
-                       strict=False)
-    label = infer(resize=model_object[1], img_path="../../dataset/gestures/test/G5/IMG_1204.JPG",
-                  model=m1)
-    print(label)
+if __name__ == "__main__":
+    classic_net_dict = {
+        # 'lenet': (LeNet(), (32, 32)),
+        # 'vgg16': (VGG16(), (224, 224)),
+        'resnet50': (ResNet50(), (224, 224)),
+    }
+    for network, model_object in classic_net_dict.items():
+        model = model_object[0]
+        epochs = 20
+        lr = 1e-3
+        loss_fun = nn.CrossEntropyLoss()
+        optimizer = torch.optim.SGD(params=model.parameters(), lr=lr)
+        plot_training_result(model_object[1], model=model, name=network)
+        m1 = model_object[0]
+        # load from pth file
+        m1.load_state_dict(state_dict=torch.load(f=f"{network}_best.pt"),
+                           strict=False)
+        label = infer(resize=model_object[1], img_path="../../dataset/gestures/test/G5/IMG_1204.JPG",
+                      model=m1)
+        print(label)
