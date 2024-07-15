@@ -8,11 +8,12 @@ import torch
 
 
 class SimpleRNN(nn.Module):
-    def __init__(self, dict_len=5000, embedding_dim=256, n_classes=2):
+    def __init__(self, dict_len=5000, embedding_dim=256, n_classes=2, pad_index=-1):
         super().__init__()
         # 嵌入：词向量
         self.embed = nn.Embedding(num_embeddings=dict_len,
-                                  embedding_dim=embedding_dim)
+                                  embedding_dim=embedding_dim,
+                                  padding_idx=pad_index)
         # 循环神经网络提取特征
         self.rnn = nn.RNN(input_size=embedding_dim,
                           hidden_size=embedding_dim,

@@ -4,13 +4,12 @@ Date: 2024/7/10
 Description: 
 """
 import jieba
+import matplotlib.pyplot as plt
 import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
-from torch.utils.data import Dataset, DataLoader
 from torch import nn
-import numpy as np
-import matplotlib.pyplot as plt
+from torch.utils.data import Dataset, DataLoader
 
 from deep_learning.practice.SimpleRNN import SimpleRNN
 

@@ -102,7 +102,7 @@ class Translation(object):
                 results = self.model(x, x_len, y, y_len)
                 loss = self.get_loss(decoder_outputs=results, y=y)
 
-                # 简单判定一下，如果损失小于0.5，则训练提前完成
+                # 简单判定一下，如果损失小于0.3，则训练提前完成
                 if loss.item() < 0.3:
                     is_complete = True
                     print(f"训练提前完成, 本批次损失为：{loss.item()}")
