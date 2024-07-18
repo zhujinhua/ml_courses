@@ -12,7 +12,8 @@ class SimpleRNN(nn.Module):
         super().__init__()
         # 嵌入：词向量
         self.embed = nn.Embedding(num_embeddings=dict_len,
-                                  embedding_dim=embedding_dim)
+                                  embedding_dim=embedding_dim,
+                                  )
         # 循环神经网络提取特征
         self.rnn = nn.RNN(input_size=embedding_dim,
                           hidden_size=embedding_dim,
@@ -20,7 +21,7 @@ class SimpleRNN(nn.Module):
         # 转换输出
         self.fc = nn.Linear(in_features=embedding_dim,
                              out_features=n_classes)
-        self.sigmoid = nn.Sigmoid()
+        # self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
         # [seq_len, batch_size] --> [seq_len, batch_size, embedding_dim]
@@ -31,5 +32,5 @@ class SimpleRNN(nn.Module):
         # [1, batch_size, embedding_dim] --> [batch_size, embedding_dim]
         out = self.fc(out[:, -1, :])
         # [batch_size, embedding_dim] --> [batch_size, n_classes]
-        out = self.sigmoid(out)
+        # out = self.sigmoid(out)
         return out
