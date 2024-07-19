@@ -64,7 +64,7 @@ class TakeAwayDataset(Dataset):
         return x, y
 
 
-emotion_file = '../../dataset/中文外卖评论数据集_bak.csv'
+emotion_file = '../../dataset/中文外卖评论数据集.csv'
 stopwords = load_stopwords('../../dataset/cn_stopwords.txt')
 take_away_df = pd.read_csv(emotion_file)
 take_away_df['words'] = take_away_df['review'].apply(lambda x: jieba.lcut(x.replace(' ', ''), cut_all=False))
