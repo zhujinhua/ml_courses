@@ -15,7 +15,7 @@ class Decoder(nn.Module):
             embedding_dim=self.tokenizer.output_embed_dim,
             padding_idx=self.tokenizer.output_word2idx.get("<PAD>"),
         )
-        # 抽取特征
+        # 抽取特征 GRUCell
         self.gru = nn.GRU(
             input_size=self.tokenizer.output_embed_dim,
             hidden_size=self.tokenizer.output_hidden_size,
@@ -37,7 +37,7 @@ class Decoder(nn.Module):
         decoder_input = self.embed(decoder_input)
         # 输入：[1, batch_size, embedding_dim] [1, batch_size, hidden_size]
         # 输出：[1, batch_size, hidden_size] [1, batch_size, hidden_size]
-        # 因为只有1步，所以 out 跟 decoder_hidden是一样的
+        # 因为只有1步，所以 out 跟 decoder_hidden是一样的，gru_cell
         out, decoder_hidden = self.gru(decoder_input, decoder_hidden)
         # [batch_size, hidden_size]
         out = out.squeeze(dim=0)
