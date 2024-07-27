@@ -47,4 +47,29 @@
             - 不重要的特征：权重比较小，削弱重要性
         - 外挂式注意力
         - 自注意力：根据自己所在的上下文求注意力！
+### 大模型的三大架构
+    - 直接利用 Transformer即可，使用Encoder-Decoder架构: T5, Bart, 成为谷歌派
+        - Transformer本身就是完整的生成式算法，所以，直接利用Transformer构建大模型，顺理成章
+        - 优势：不用重新设计结构
+        - 劣势：网络结构略显复杂：网络略显复杂，但是训练和推理逻辑简单
+    - 只使用Transformer的Encoder，Encoder-Only架构（只使用一半，完成原来的全部功能）
+        - 网络结构变简单，但训练和推理流程变复杂了
+        - ChatGLM系列 质谱独有架构！！不被圈子认可，独一份
+    - 只使用Transformer的Decoder, Decoder-Only架构（只使用一半，完成原来的全部功能）
+        - OpenAI系列，被全世界认可，追捧
+
+### 大模型的训练流程
+    - 预训练阶段 pre-train PT
+    - 监督微调 Supervised Fine-Tuning SFT
+    - 基于人类反馈的强化学习 Reinforcement Learning with Human Feedback RLHF
+
+### 小模型的训练：
+    - 步骤
+        - 问题或场景的分析，搞定输入，输出
+        - 构建数据集
+        - 搭建、遴选模型
+        - 训练
+        - 评测
+        - 部署
+    - 特点：针对具体问题，采集具体数据，训练具体模型，使用具体模型；单一功能原则，单独维护原则，一个大的系统可以按需挂载看多小的模型
         

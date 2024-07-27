@@ -23,6 +23,7 @@ class Translation(object):
         self.optimizer = torch.optim.Adam(
             self.model.parameters(), lr=0.5, betas=(0.9, 0.98), eps=1e-9
         )
+        # 通过乘以初始学习率一个由 lambda 函数定义的因子来调整每个 epoch 的学习率
         self.lr_scheduler = LambdaLR(
             optimizer=self.optimizer,
             lr_lambda=lambda step: rate(
