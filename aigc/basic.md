@@ -48,7 +48,7 @@
         - 外挂式注意力
         - 自注意力：根据自己所在的上下文求注意力！
 ### 大模型的三大架构
-    - 直接利用 Transformer即可，使用Encoder-Decoder架构: T5, Bart, 成为谷歌派
+    - 直接利用 Transformer即可，使用Encoder-Decoder架构: T5（Text-to-Text Transfer Transformer）, Bart, 成为谷歌派
         - Transformer本身就是完整的生成式算法，所以，直接利用Transformer构建大模型，顺理成章
         - 优势：不用重新设计结构
         - 劣势：网络结构略显复杂：网络略显复杂，但是训练和推理逻辑简单
@@ -59,9 +59,14 @@
         - OpenAI系列，被全世界认可，追捧
 
 ### 大模型的训练流程
-    - 预训练阶段 pre-train PT
+    - 模型预训练 pre-train PT（最重要）
+        - 预训练是内功修炼，不针对任何的任务！（比如用了15个T的语料）
+        - 挖空填空（mask掩码预测预训练），完形填空；"打通任督二脉"，具有强大的文本理解能力
+        - base版大模型，底座大模型，不能直接使用
     - 监督微调 Supervised Fine-Tuning SFT
+        - 问答对，对话，知识编辑，知识注入（专家级）；chat版大模型（一般发布大模型两个版本：Base版大模型，Chat版大模型）
     - 基于人类反馈的强化学习 Reinforcement Learning with Human Feedback RLHF
+        - ChatGPT 3的叫法，现在叫偏好对齐，纠正偏好
 
 ### 小模型的训练：
     - 步骤
