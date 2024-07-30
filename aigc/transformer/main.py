@@ -32,7 +32,7 @@ class Translation(object):
         )
         self.criterion = LabelSmoothing(size=self.tokenizer.output_dict_len,
                                         padding_idx=self.tokenizer.output_word2idx.get("<PAD>"),
-                                        smoothing=0.0)
+                                        smoothing=0.0) # todo
         self.loss_compute = SimpleLossCompute(self.model.generator, self.criterion)
 
     def _get_model(self, src_vocab, tgt_vocab, N):

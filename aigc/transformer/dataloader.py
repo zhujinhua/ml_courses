@@ -87,7 +87,7 @@ def collate_fn(batch, tokenizer):
     input_mask = (input_idxes != tokenizer.input_word2idx.get("<PAD>")).unsqueeze(-2)
     # tgt [batch_size, seq_len]
     output_idxes = torch.LongTensor(output_idxes)
-    # tgt [batch_size, seq_len - 1] 去掉最后一个
+    # tgt [batch_size, seq_len - 1] 去掉最后一个 todo
     output_idxes_in = output_idxes[:, :-1]
     # tgt_y [batch_size, seq_len - 1] 去掉开头 的 SOS
     output_idxes_out = output_idxes[:, 1:]
