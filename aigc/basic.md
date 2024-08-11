@@ -118,7 +118,27 @@
 - BERT-Base: L = 12, H = 768, A = 12, Total parameters = 110M
 - BERT-Large: L = 24, H = 1024, A = 16, Total parameters = 340M
 
+### 训练前提：
+  - 模型
+  - 训练框架
+### 训练框架
+  - LLAMA-Factory
+    - 把底层训练框架/技术套壳,通过壳，可以无代码进行模型训练
+    - Steps: Refer to https://blog.csdn.net/weixin_37897145/article/details/138834235
+      - pip install -e .[metrics] 
+      - llamafactory-cli webui
+### 训练一个医疗大模型
+  ### 预训练
 
-
+###高性能部署
+  - 作用：
+    - 把大模型部署到服务端，暴露OpenAI Compatible API
+    - 高性能，标准化，工业应用最广泛，最简单
+  - 安装vLLM：pip install vllm
+  - 部署方法： python -m vllm.entrypoints.openai.api_server --model lmsys/vicuna-7b-v1.3 --host 127.0.0.1 --port 8000
+  - 调用方法：
+    - langchain-openai
+    - ChanOpenAI - 类似于Chat模型
+    - OpenAI - 类似于Base模型
 
 

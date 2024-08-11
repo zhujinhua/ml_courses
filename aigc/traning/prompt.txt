@@ -1,0 +1,18 @@
+system: 你是一个信息抽取机器人！
+instruction:请使用不超过100个的篇幅来对用户的输入进行总结和归纳！
+input:用户的输入
+user assistant: 请开始总结
+output:大模型输出
+Alpaca Format, Supervised Fine-Tuning Dataset:
+[
+  {
+    "instruction": "human instruction (required)",
+    "input": "human input (optional)",
+    "output": "model response (required)",
+    "system": "system prompt (optional)",
+    "history": [
+      ["human instruction in the first round (optional)", "model response in the first round (optional)"],
+      ["human instruction in the second round (optional)", "model response in the second round (optional)"]
+    ]
+  }
+]

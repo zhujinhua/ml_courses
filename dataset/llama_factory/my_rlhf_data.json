@@ -1,0 +1,164 @@
+[
+  {
+    "instruction": "描述糖尿病的常见症状。",
+    "input": "我最近感觉经常口渴，而且每天都要上厕所很多次。这是什么问题？",
+    "chosen": "糖尿病的常见症状包括口渴频繁、尿频、体重减轻、乏力、视力模糊等。",
+    "rejected": "糖尿病是一种严重的疾病，可能会导致许多健康问题。"
+  },
+  {
+    "instruction": "请解释高血压的主要风险因素。",
+    "input": "我的家族中有多个人都患有高血压，这对我有影响吗？",
+    "chosen": "高血压的主要风险因素包括肥胖、缺乏运动、饮食中盐分过高、长期精神压力、遗传因素等。",
+    "rejected": "高血压主要由个人的生活习惯决定，没有太多遗传因素。"
+  },
+  {
+    "instruction": "如何预防心脏病？",
+    "input": "我想知道如何减少心脏病的风险。",
+    "chosen": "预防心脏病的方法包括保持健康的饮食、定期锻炼、控制体重、戒烟、减少酒精摄入、定期检查血压和血脂等。",
+    "rejected": "心脏病预防主要依靠药物治疗。"
+  },
+  {
+    "instruction": "讲解一下常见的过敏原。",
+    "input": "我每次春天都会打喷嚏，这可能是过敏吗？",
+    "chosen": "常见的过敏原包括花粉、尘螨、宠物皮屑、霉菌、某些食物（如坚果、海鲜）以及某些药物。",
+    "rejected": "过敏原通常与季节无关。"
+  },
+  {
+    "instruction": "什么是慢性阻塞性肺病（COPD）？",
+    "input": "我经常感到呼吸急促，而且咳嗽很久，这可能是什么问题？",
+    "chosen": "慢性阻塞性肺病（COPD）是一种渐进性肺部疾病，特征为呼吸道慢性炎症和气流受限，主要由吸烟引起。",
+    "rejected": "COPD是一种急性疾病，只需要短期治疗。"
+  },
+  {
+    "instruction": "请列出常见的胃肠道疾病。",
+    "input": "我有时感觉腹部不适，可能是胃肠道问题吗？",
+    "chosen": "常见的胃肠道疾病包括胃溃疡、胃食管反流病（GERD）、炎症性肠病（如克罗恩病和溃疡性结肠炎）、便秘和腹泻等。",
+    "rejected": "胃肠道疾病通常没有明显的症状。"
+  },
+  {
+    "instruction": "解释一下什么是高胆固醇。",
+    "input": "我最近体检结果显示胆固醇偏高，这是什么问题？",
+    "chosen": "高胆固醇是指血液中的胆固醇水平过高，这可能增加患心血管疾病的风险。主要类型包括低密度脂蛋白胆固醇（LDL-C）过高。",
+    "rejected": "高胆固醇只是与饮食有关的问题，不需要特别关注。"
+  },
+  {
+    "instruction": "如何控制糖尿病？",
+    "input": "医生建议我控制血糖水平，我应该怎么做？",
+    "chosen": "控制糖尿病的方法包括监测血糖水平、健康饮食、定期锻炼、按时服用药物、管理压力等。",
+    "rejected": "糖尿病控制主要依赖于手术治疗。"
+  },
+  {
+    "instruction": "请解释一下肺炎的常见症状。",
+    "input": "我感到咳嗽和发热，这可能是肺炎吗？",
+    "chosen": "肺炎的常见症状包括咳嗽、发热、呼吸急促、胸痛、乏力等。",
+    "rejected": "肺炎只表现为喉咙痛和头痛。"
+  },
+  {
+    "instruction": "什么是心力衰竭？",
+    "input": "我有时感到呼吸困难，而且很容易疲劳，这可能是心力衰竭吗？",
+    "chosen": "心力衰竭是指心脏无法有效地泵血以满足身体需求，可能导致呼吸困难、乏力、水肿等症状。",
+    "rejected": "心力衰竭只是暂时性的呼吸困难，不需要特殊处理。"
+  },
+  {
+    "instruction": "Describe the common symptoms of diabetes.",
+    "input": "I've been feeling thirsty a lot lately and having to go to the bathroom frequently. What could be the issue?",
+    "chosen": "Common symptoms of diabetes include frequent thirst, frequent urination, weight loss, fatigue, and blurred vision.",
+    "rejected": "Diabetes is a severe condition that may lead to various health problems."
+  },
+  {
+    "instruction": "Explain the main risk factors for hypertension.",
+    "input": "Many people in my family have high blood pressure. Does this affect me?",
+    "chosen": "Main risk factors for hypertension include obesity, lack of exercise, high salt intake, long-term stress, and genetic factors.",
+    "rejected": "Hypertension is mainly determined by personal lifestyle with little genetic influence."
+  },
+  {
+    "instruction": "How to prevent heart disease?",
+    "input": "I want to know how to reduce the risk of heart disease.",
+    "chosen": "Preventing heart disease involves maintaining a healthy diet, regular exercise, controlling weight, quitting smoking, reducing alcohol intake, and regularly checking blood pressure and cholesterol levels.",
+    "rejected": "Preventing heart disease mainly relies on medication."
+  },
+  {
+    "instruction": "Explain common allergens.",
+    "input": "I sneeze every spring. Could it be an allergy?",
+    "chosen": "Common allergens include pollen, dust mites, pet dander, mold, certain foods (such as nuts and seafood), and some medications.",
+    "rejected": "Allergens are usually unrelated to the seasons."
+  },
+  {
+    "instruction": "What is chronic obstructive pulmonary disease (COPD)?",
+    "input": "I often feel short of breath and have been coughing for a long time. Could this be COPD?",
+    "chosen": "Chronic obstructive pulmonary disease (COPD) is a progressive lung condition characterized by chronic inflammation and airflow limitation, primarily caused by smoking.",
+    "rejected": "COPD is an acute condition that only requires short-term treatment."
+  },
+  {
+    "instruction": "List common gastrointestinal diseases.",
+    "input": "I sometimes feel discomfort in my abdomen. Could this be a gastrointestinal issue?",
+    "chosen": "Common gastrointestinal diseases include peptic ulcer, gastroesophageal reflux disease (GERD), inflammatory bowel diseases (such as Crohn's disease and ulcerative colitis), constipation, and diarrhea.",
+    "rejected": "Gastrointestinal diseases usually have no obvious symptoms."
+  },
+  {
+    "instruction": "Explain what high cholesterol is.",
+    "input": "My recent lab results show high cholesterol. What does this mean?",
+    "chosen": "High cholesterol refers to elevated levels of cholesterol in the blood, which can increase the risk of cardiovascular diseases. Key types include high low-density lipoprotein cholesterol (LDL-C).",
+    "rejected": "High cholesterol is mainly a dietary issue and does not require special attention."
+  },
+  {
+    "instruction": "How to manage diabetes?",
+    "input": "The doctor advised me to control my blood sugar levels. What should I do?",
+    "chosen": "Managing diabetes involves monitoring blood sugar levels, eating a healthy diet, exercising regularly, taking medications as prescribed, and managing stress.",
+    "rejected": "Diabetes management mainly relies on surgical treatment."
+  },
+  {
+    "instruction": "Explain the common symptoms of pneumonia.",
+    "input": "I feel cough and fever. Could it be pneumonia?",
+    "chosen": "Common symptoms of pneumonia include cough, fever, shortness of breath, chest pain, and fatigue.",
+    "rejected": "Pneumonia only presents with sore throat and headache."
+  },
+  {
+    "instruction": "What is heart failure?",
+    "input": "Sometimes I feel short of breath and very fatigued. Could this be heart failure?",
+    "chosen": "Heart failure occurs when the heart cannot pump blood effectively to meet the body's needs, which can lead to symptoms like shortness of breath, fatigue, and swelling.",
+    "rejected": "Heart failure is just temporary shortness of breath and does not need special treatment."
+  },
+  {
+    "instruction": "Describe the early symptoms of breast cancer.",
+    "input": "I found a small lump in my breast. Should I be worried about breast cancer?",
+    "chosen": "Early symptoms of breast cancer include a lump or mass in the breast, changes in breast shape or size, swelling, dimpling of the skin, and discharge from the nipple.",
+    "rejected": "Breast cancer symptoms are usually not noticeable until it's too late."
+  },
+  {
+    "instruction": "What are the common treatments for asthma?",
+    "input": "I have been diagnosed with asthma. What treatments are available?",
+    "chosen": "Common treatments for asthma include inhaled corticosteroids, bronchodilators, leukotriene modifiers, and lifestyle changes to avoid triggers. Regular monitoring and medication adherence are essential.",
+    "rejected": "Asthma treatments usually involve surgery."
+  },
+  {
+    "instruction": "How can I reduce my risk of stroke?",
+    "input": "What steps can I take to lower my risk of having a stroke?",
+    "chosen": "Reducing the risk of stroke involves managing high blood pressure, controlling diabetes, maintaining a healthy diet, exercising regularly, quitting smoking, and limiting alcohol intake.",
+    "rejected": "Strokes are unavoidable and cannot be prevented through lifestyle changes."
+  },
+  {
+    "instruction": "What are the symptoms of a urinary tract infection (UTI)?",
+    "input": "I am experiencing painful urination and frequent urge to urinate. Could this be a UTI?",
+    "chosen": "Symptoms of a urinary tract infection (UTI) include painful urination, frequent urge to urinate, cloudy or strong-smelling urine, pelvic pain, and sometimes fever.",
+    "rejected": "UTI symptoms usually involve only gastrointestinal issues."
+  },
+  {
+    "instruction": "Explain what rheumatoid arthritis is.",
+    "input": "I have been experiencing joint pain and stiffness for a while. Could this be rheumatoid arthritis?",
+    "chosen": "Rheumatoid arthritis is an autoimmune disorder characterized by chronic inflammation of the joints, leading to pain, swelling, and potential joint deformity. It often affects both sides of the body symmetrically.",
+    "rejected": "Rheumatoid arthritis is just temporary joint pain and usually resolves on its own."
+  },
+  {
+    "instruction": "What are the treatment options for high cholesterol?",
+    "input": "My cholesterol levels are high. What treatments should I consider?",
+    "chosen": "Treatment options for high cholesterol include lifestyle changes such as diet and exercise, as well as medications like statins, fibrates, or niacin. Regular monitoring of cholesterol levels is important.",
+    "rejected": "High cholesterol can be managed only through over-the-counter supplements."
+  },
+  {
+    "instruction": "Describe the common symptoms of type 2 diabetes.",
+    "input": "I have been feeling unusually tired and have noticed some unexplained weight loss. Could this be type 2 diabetes?",
+    "chosen": "Common symptoms of type 2 diabetes include excessive thirst, frequent urination, extreme fatigue, blurred vision, and unexplained weight loss.",
+    "rejected": "Type 2 diabetes symptoms are often not noticeable and do not affect energy levels."
+  }
+]
