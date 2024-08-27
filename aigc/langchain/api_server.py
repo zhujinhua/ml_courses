@@ -1,35 +1,29 @@
-"""
-Author: jhzhu
-Date: 2024/8/17
-Description: 
-"""
-import os
-
-#!/usr/bin/env python
 from fastapi import FastAPI
-from langchain.prompts import ChatPromptTemplate
-from langchain.chat_models import ChatAnthropic, ChatOpenAI
-from langchain_community.chat_models import ChatTongyi
 from langserve import add_routes
-from dotenv import load_dotenv, find_dotenv
-_ = load_dotenv(find_dotenv()) # read local .env file
-api_key = os.environ['DASHSCOPE_API_KEY']
 
+from utils import get_qwen_models
+llm, _, _ = get_qwen_models()
+
+from langchain_core.prompts import PromptTemplate
+
+# 定义一个FastAPI应用
 app = FastAPI(
     title="LangChain Server",
     version="1.0",
     description="A simple api server using Langchain's Runnable interfaces",
 )
-model = ChatTongyi(model='qwen-long', top_p=0.8, temperature=0, api_key=api_key)
 
-prompt = ChatPromptTemplate.from_template("tell me a joke about {topic}")
+# 构建我的应用
+prompt = PromptTemplate.from_template(template="请列出{num}本值得一读的{type}书！\n你的返回应当是用逗号分开的一系列的值，比如： `苹果, 桃, 梨` 或者 `苹果,桃,梨`")
+chain = prompt | llm
+
+# 配置 API 接口详情
 add_routes(
-    app,
-    prompt | model,
-    path="/joke",
+    app=app,
+    runnable=chain,
+    path="/query",
 )
 
 if __name__ == "__main__":
     import uvicorn
-
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

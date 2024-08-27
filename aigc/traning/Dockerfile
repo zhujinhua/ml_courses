@@ -23,10 +23,13 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install --upgrade pip
 RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
 RUN pip3 install vllm
-RUN pip3 install langchain
+RUN pip3 install langchain_old
 RUN pip3 install langchain_openai
 
-
+# If fine tuning the model
+RUN git clone https://github.com/hiyouga/LLaMA-Factory.git /LLaMA-Factory && \
+    cd /LLaMA-Factory && pip3 install -e ".[torch,metrics]"
+RUN cd ../
 # Clone and install Qwen2 model (if necessary)
 RUN git clone https://www.modelscope.cn/qwen/qwen2-7b-instruct.git /qwen2-7b-instruct && \
     cd /qwen2-7b-instruct 
