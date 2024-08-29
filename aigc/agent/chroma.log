@@ -1,0 +1,81 @@
+[33mWARNING[0m:  [27-08-2024 20:17:04] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [27-08-2024 20:17:04] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component System
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:17:04] Starting component SegmentAPI
+[32mINFO[0m:     [27-08-2024 20:17:05] Started server process [[36m10480[0m]
+[32mINFO[0m:     [27-08-2024 20:17:05] Waiting for application startup.
+[32mINFO[0m:     [27-08-2024 20:17:05] Application startup complete.
+[31mERROR[0m:    [27-08-2024 20:17:05] [Errno 13] error while attempting to bind on address ('127.0.0.1', 8000): “‘“ª÷÷∑√Œ »®œﬁ≤ª‘ –Ìµƒ∑Ω Ω◊ˆ¡À“ª∏ˆ∑√Œ Ã◊Ω”◊÷µƒ≥¢ ‘°£
+[32mINFO[0m:     [27-08-2024 20:17:05] Waiting for application shutdown.
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component System
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component SegmentAPI
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:17:05] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [27-08-2024 20:17:05] Application shutdown complete.
+[33mWARNING[0m:  [27-08-2024 20:17:51] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [27-08-2024 20:17:51] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component System
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:17:51] Starting component SegmentAPI
+[32mINFO[0m:     [27-08-2024 20:17:51] Started server process [[36m3276[0m]
+[32mINFO[0m:     [27-08-2024 20:17:51] Waiting for application startup.
+[32mINFO[0m:     [27-08-2024 20:17:51] Application startup complete.
+[31mERROR[0m:    [27-08-2024 20:18:03] [Errno 11001] getaddrinfo failed
+[32mINFO[0m:     [27-08-2024 20:18:03] Waiting for application shutdown.
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component System
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component SegmentAPI
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:18:03] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [27-08-2024 20:18:03] Application shutdown complete.
+[32mINFO[0m:     [27-08-2024 20:19:47] Set chroma_server_nofile to 65535
+[32mINFO[0m:     [27-08-2024 20:19:47] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component System
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:19:47] Starting component SegmentAPI
+[32mINFO[0m:     [27-08-2024 20:19:47] Started server process [[36m756[0m]
+[32mINFO[0m:     [27-08-2024 20:19:47] Waiting for application startup.
+[32mINFO[0m:     [27-08-2024 20:19:47] Application startup complete.
+[32mINFO[0m:     [27-08-2024 20:19:47] Uvicorn running on [1mhttp://0.0.0.0:8002[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [27-08-2024 20:25:29] Shutting down
+[32mINFO[0m:     [27-08-2024 20:25:29] Waiting for application shutdown.
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component System
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component SegmentAPI
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:25:29] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [27-08-2024 20:25:29] Application shutdown complete.
+[32mINFO[0m:     [27-08-2024 20:25:29] Finished server process [[36m756[0m]
+[32mINFO[0m:     [27-08-2024 20:25:54] Set chroma_server_nofile to 65535
+[32mINFO[0m:     [27-08-2024 20:25:54] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [27-08-2024 20:25:54] Starting component System
+[36mDEBUG[0m:    [27-08-2024 20:25:54] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [27-08-2024 20:25:54] Starting component SqliteDB
+[36mDEBUG[0m:    [27-08-2024 20:25:55] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [27-08-2024 20:25:55] Starting component Posthog
+[36mDEBUG[0m:    [27-08-2024 20:25:55] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [27-08-2024 20:25:55] Starting component SegmentAPI
+[32mINFO[0m:     [27-08-2024 20:25:55] Started server process [[36m2219[0m]
+[32mINFO[0m:     [27-08-2024 20:25:55] Waiting for application startup.
+[32mINFO[0m:     [27-08-2024 20:25:55] Application startup complete.
+[32mINFO[0m:     [27-08-2024 20:25:55] Uvicorn running on [1mhttp://0.0.0.0:8002[0m (Press CTRL+C to quit)
