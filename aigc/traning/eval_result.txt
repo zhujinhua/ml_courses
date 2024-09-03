@@ -1,0 +1,17 @@
+ +------------------------------------------------+---------------------------------------------------+
+| Model                                          | custom_general_qa                                 |
++================================================+===================================================+
+| qa-custom_ceval_qwen-vl-chat-qwen-vl-chat-eval | (custom_general_qa/rouge-1-r) 0.15634846396479202 |
+|                                                | (custom_general_qa/rouge-1-p) 0.17433480653319192 |
+|                                                | (custom_general_qa/rouge-1-f) 0.12126350077076564 |
+|                                                | (custom_general_qa/rouge-2-r) 0.02951799402088663 |
+|                                                | (custom_general_qa/rouge-2-p) 0.03281940328789948 |
+|                                                | (custom_general_qa/rouge-2-f) 0.01851976353593408 |
+|                                                | (custom_general_qa/rouge-l-r) 0.14202517339880769 |
+|                                                | (custom_general_qa/rouge-l-p) 0.13781187533349135 |
+|                                                | (custom_general_qa/rouge-l-f) 0.09574082968021079 |
+|                                                | (custom_general_qa/bleu-1) 0.08896032872683757    |
+|                                                | (custom_general_qa/bleu-2) 0.010558469660775591   |
+|                                                | (custom_general_qa/bleu-3) 0.0016264427018856643  |
+|                                                | (custom_general_qa/bleu-4) 0.00028246263518233173 |
++------------------------------------------------+---------------------------------------------------+
