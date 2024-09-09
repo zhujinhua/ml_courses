@@ -1,11 +1,9 @@
 import requests
+import json
 
-# 注意请求路径：常规路径后面添加一个 invoke
-url = " http://localhost:8001/query/invoke"
+response = requests.post(
+    "http://localhost:8001/intention_rec/invoke",
+    json={"input": {"role": "意图识别专家", "content": "荨麻疹常见症状？"}}
+)
+print(json.loads(response.json()['output']['content']))
 
-data = {"num": 5, "type": "化学"}
-
-# 注意传参格式：外面包一层 input
-response = requests.post(url=url, json={"input": data})
-
-print(response.json()["output"])

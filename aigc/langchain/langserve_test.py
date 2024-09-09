@@ -45,5 +45,5 @@ add_routes(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="direct.virtaicloud.com", port=20925)
+    uvicorn.run(app, host="0.0.0.0", port=8001)
 
