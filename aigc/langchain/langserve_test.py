@@ -29,12 +29,12 @@ app = FastAPI(
 add_routes(
     app,
     ChatOpenAI(api_key='EMPTY',
-        base_url='http://direct.virtaicloud.com:28408/v1'),
+        base_url='http://direct.virtaicloud.com:20925/v1'),
     path="/openai",
 )
 
 model = ChatAnthropic(api_key='EMPTY',
-        base_url='http://direct.virtaicloud.com:28408/v1',)
+        base_url='http://direct.virtaicloud.com:20925/v1',)
 prompt = ChatPromptTemplate.from_template("tell me a joke about {topic}")
 add_routes(
     app,
@@ -45,5 +45,5 @@ add_routes(
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="direct.virtaicloud.com", port=28408)
+    uvicorn.run(app, host="direct.virtaicloud.com", port=20925)
 
