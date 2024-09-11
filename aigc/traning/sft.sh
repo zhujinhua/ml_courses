@@ -1,0 +1,25 @@
+CUDA_VISIBLE_DEVICES=0   \
+nohup swift sft \
+--model_id_or_path '/gemini/code/fine-tuning/qwen-vl-chat-image-text-text' \
+--template_type 'qwen-vl' \
+--model_type 'qwen-vl-chat' \
+--system '你是一名专业的医疗助理。请帮助咨询者分析其症状的潜在原因，并提供可能的治疗建议。在做出判断之前，请根据情况适当向咨询者提出更多具体问题，以了解其病情的详细信息，例如症状的持续时间、严重程度、是否有其他伴随症状、既往病史或正在使用的药物等。您的回答应准确、耐心、易于理解，并根据现有医学知识提供可靠的信息。请注意，您提供的信息不能替代专业医生的诊断和建议。'  \
+--dataset disc-med-sft-zh swift-mix medical-zh-instruct sharegpt-gpt4 \
+--train_dataset_sample '200000' \
+--lora_target_modules DEFAULT \
+--init_lora_weights 'True' \
+--batch_size '4' \
+--learning_rate '1e-4' \
+--num_train_epochs '6' \
+--gradient_accumulation_steps '16' \
+--eval_steps '500' \
+--save_steps '500' \
+--output_dir '/gemini/code/swift/output/qwen-vl-chat/v24-20240831-005753' \
+--warmup_ratio '0.03' \
+--eval_batch_size '1' \
+--max_grad_norm '0.5' \
+--lazy_tokenize True \
+--add_output_dir_suffix False \
+--output_dir /gemini/code/swift/output/qwen-vl-chat/v24-20240831-005753 \
+--logging_dir /gemini/code/swift/output/qwen-vl-chat/v24-20240831-005753/runs \
+--ignore_args_error True > /gemini/code/swift/output/qwen-vl-chat/v24-20240831-005753/runs/run.log 2>&1 &
