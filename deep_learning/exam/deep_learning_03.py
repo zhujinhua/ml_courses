@@ -22,7 +22,7 @@ class Model(nn.Module):
                           hidden_size=embedding_dim,
                           num_layers=1,
                           batch_first=False)
-        self.linear = nn.Linear(in_features=512, out_features=2)
+        self.linear = nn.Linear(in_features=embedding_dim, out_features=2)
 
     def forward(self, x):
         x = self.embed(x)
