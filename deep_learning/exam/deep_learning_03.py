@@ -22,6 +22,7 @@ class Model(nn.Module):
                           hidden_size=embedding_dim,
                           num_layers=1,
                           batch_first=False)
+        self.dropout = nn.Dropout(p=0.2)
         self.linear = nn.Linear(in_features=embedding_dim, out_features=2)
 
     def forward(self, x):

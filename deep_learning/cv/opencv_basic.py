@@ -32,8 +32,9 @@ cv2.waitKey(delay=2000)
 N = 3
 # 抽取第三行与第一行的差别
 kernel_4 = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]])
+kernel_5 = np.array([[0, 1, -1, 0], [1, 3, -3, -1], [1, 3, -3, -1], [0, 1, -1, 0]])
 img4 = cv2.filter2D(img, ddepth=-1, kernel=kernel_4)
-img5 = cv2.filter2D(img, ddepth=-1, kernel=kernel_4.T)
+img5 = cv2.filter2D(img, ddepth=-1, kernel=kernel_5)
 cv2.imshow(winname='filtered 4 image', mat=img4)
 cv2.waitKey(delay=2000)
 cv2.imshow(winname='filtered 5 image', mat=img5)

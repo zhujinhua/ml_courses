@@ -13,11 +13,12 @@ from torchvision import transforms
 
 
 class HouseModel(nn.Module):
-    # get the hyperparameters, define the process layer, matrix transform
+    """
+        Boston house model: applies two fully connected layers
+    """
     def __init__(self, n_features):
-        # init the parent model
+        # firstly invoke parent init method
         super(HouseModel, self).__init__()
-        # define two linear layers
         self.linear1 = nn.Linear(in_features=n_features, out_features=8)
         self.linear2 = nn.Linear(in_features=8, out_features=1)
 
@@ -109,6 +110,8 @@ def get_data_fusion():
 
 
 if __name__ == "__main__":
+    # print(dir(nn))
     # house_model = HouseModel(n_features=13)
     # hand_written_model = HandWrittenModel()
-    word_2_index, index_2_word = build_dict(corpus_dir='./corpus')
+    # word_2_index, index_2_word = build_dict(corpus_dir='./corpus')
+    data_fusion = get_data_fusion()

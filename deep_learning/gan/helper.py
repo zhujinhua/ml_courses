@@ -35,6 +35,7 @@ img5.show()
 
 class MyRandomCrop(transforms.RandomCrop):
     def __int__(self):
+        super().__init__()
         pass
 
     def forward(self, img):
