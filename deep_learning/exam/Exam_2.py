@@ -9,6 +9,7 @@ import jieba
 import os
 import glob
 from torchvision import transforms
+from PIL import Image
 
 
 class ConvBlock(nn.Module):
@@ -55,9 +56,9 @@ class HandWrittenModel(nn.Module):
 
 class SpamModel(nn.Module):
 
-    def __init__(self, dict_size, embedding_dim):
+    def __init__(self, vocab_size, embedding_dim):
         super().__init__()
-        self.embed = nn.Embedding(num_embeddings=dict_size, embedding_dim=embedding_dim)
+        self.embed = nn.Embedding(num_embeddings=vocab_size, embedding_dim=embedding_dim)
         self.gru = nn.GRU(input_size=embedding_dim, hidden_size=embedding_dim, num_layers=2)
         self.dropout = nn.Dropout(p=0.2)
         self.fc = nn.Linear(in_features=embedding_dim, out_features=2)
@@ -90,7 +91,29 @@ def get_data_transforms():
     ])
 
 
+class DataAugmentation:
+    def __init__(self):
+        self.transform = transforms.Compose([
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.RandomRotation(degrees=15),
+            transforms.RandomResizedCrop(size=(224, 224),
+                                         scale=(0.8, 1.0)),
+            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std=[0.229, 0.224, 0.225])
+        ])
+
+    def __call__(self, img):
+        return self.transform(img)
+
+
 if __name__ == "__main__":
     # words_2_index_dict, index_2_words_dict = build_dict('./corpus')
-    help(transforms.ColorJitter)
-    transforms = get_data_transforms()
+    # help(transforms.ColorJitter)
+    # transforms = get_data_transforms()
+    img_path = '../../dataset/animal.jpg'
+    image = Image.open(img_path)
+    augmenter = DataAugmentation()
+    augmented_image = augmenter(image)
+    print(augmented_image.shape)
