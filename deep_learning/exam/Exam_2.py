@@ -56,16 +56,16 @@ class HandWrittenModel(nn.Module):
 
 class SpamModel(nn.Module):
 
-    def __init__(self, vocab_size, embedding_dim):
+    def __init__(self, vocab_size, embedding_dim, num_layers=2):
         super().__init__()
-        self.embed = nn.Embedding(num_embeddings=vocab_size, embedding_dim=embedding_dim)
-        self.gru = nn.GRU(input_size=embedding_dim, hidden_size=embedding_dim, num_layers=2)
+        self.embedding = nn.Embedding(vocab_size, embedding_dim)
+        self.gru = nn.GRU(input_size=embedding_dim, hidden_size=embedding_dim, num_layers=num_layers)
         self.dropout = nn.Dropout(p=0.2)
         self.fc = nn.Linear(in_features=embedding_dim, out_features=2)
 
     def forward(self, x):
-        x = self.embed(x)
-        output, hn = self.gru(x)
+        embedded = self.embedding(x)
+        gru_out, hn = self.gru(embedded)
         x = self.dropout(hn[-1])
         x = self.fc(x)
         return x
@@ -77,7 +77,7 @@ def build_dict(data_path):
         with open(file_path, 'r') as file_reader:
             file_info = file_reader.read()
             words_set = words_set.union(set(jieba.lcut(file_info)))
-    words_2_index_dict = {word: index for index, word in enumerate(words_set)}
+    words_2_index_dict = {word: index for index, word in enumerate(sorted(words_set))}
     index_2_words_dict = {index: word for word, index in words_2_index_dict.items()}
     return words_2_index_dict, index_2_words_dict
 

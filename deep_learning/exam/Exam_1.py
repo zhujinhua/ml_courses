@@ -14,7 +14,7 @@ from torchvision import transforms
 
 class HouseModel(nn.Module):
     """
-        Boston house model: applies two fully connected layers
+        Boston house model: apply two fully connected layers
     """
     def __init__(self, n_features):
         # firstly invoke parent init method

@@ -15,6 +15,7 @@ from torchvision import transforms
 
 from deep_learning.classic_net.ResNet50 import ResNet50
 from deep_learning.classic_net.VGG16 import VGG16
+from deep_learning.classic_net.HandWrittenNet import HandWrittenNet
 from deep_learning.utils.LeNet import LeNet
 
 
@@ -166,7 +167,8 @@ if __name__ == "__main__":
     classic_net_dict = {
         # 'lenet': (LeNet(), (32, 32)),
         # 'vgg16': (VGG16(), (224, 224)),
-        'resnet50': (ResNet50(), (224, 224)),
+        # 'resnet50': (ResNet50(), (224, 224)),
+        'handwrittenNet': ((HandWrittenNet()), (224, 224)),
     }
     for network, model_object in classic_net_dict.items():
         model = model_object[0]
